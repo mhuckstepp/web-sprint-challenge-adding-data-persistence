@@ -133,4 +133,4 @@ Foreign key
 
 4. What do we need in order to have a _many to many_ relationship between two tables?
 
-We need an additional table to store
+We need an additional table to store the many to many relationships. these are called assoication, bridge or cross-reference tables.
