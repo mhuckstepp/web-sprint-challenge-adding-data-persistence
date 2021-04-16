@@ -1,7 +1,5 @@
-// build your `/api/projects` router here
-// build your `/api/resources` router here
 const router = require("express").Router();
-const { add, getById } = require("./model");
+const { add, getById, get } = require("./model");
 
 router.post("/", (req, res, next) => {
   add(req.body)
@@ -11,10 +9,18 @@ router.post("/", (req, res, next) => {
     .catch(next);
 });
 
+router.get("/", (req, res, next) => {
+  get()
+    .then((projects) => {
+      res.status(200).json(projects);
+    })
+    .catch(next);
+});
+
 router.get("/:id", (req, res, next) => {
   getById(req.params.id)
-    .then((resource) => {
-      res.status(200).json(resource);
+    .then((project) => {
+      res.status(200).json(project);
     })
     .catch(next);
 });
